@@ -14,3 +14,12 @@ spring:
           uri: lb://SECURITY-JWT
           predicates:
             - Path=/api/auth/**
+
+eureka:
+  client:
+    register-with-eureka: true
+    service-url:
+      default-zone: http://eureka-0.eureka.default.svc.cluster.local:8761/eureka
+  instance:
+    prefer-ip-address: true
+    hostname: eureka-0
