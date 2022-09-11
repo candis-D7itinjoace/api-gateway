@@ -1,0 +1,16 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: domain-header
+          uri: lb://DOMAIN-HEADER
+          predicates:
+            - Path=/auth/**
+        - id: security-jwt
+          uri: lb://SECURITY-JWT
+          predicates:
+            - Path=/api/auth/**
